@@ -15,5 +15,7 @@ export const useFlashSale = () => {
 
   const { loading, error, data } = useQuery(GET_FLASH_SALE);
 
-  return { GET_FLASH_SALE, loading, error, data };
+  const products = data?.cache?.data?.products;
+
+  return { GET_FLASH_SALE, loading, error, products };
 };
