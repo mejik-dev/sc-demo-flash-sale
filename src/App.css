@@ -5,9 +5,15 @@
 }
 
 .container .card {
-  display: flex;
+  display: inline-flex;
+  padding: 14px;
+  margin: 10px;
   flex-wrap: wrap;
-  width: 12rem;
+  width: 15rem;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.product-name {
+  font-weight: bold;
 }
