@@ -3,10 +3,6 @@ import { gql, useQuery } from "@apollo/client";
 const GET_FLASH_SALE = gql`
   {
     cache(key: "flash-sale") {
-      name
-      key
-      expired
-      createdAt
       data
     }
   }
