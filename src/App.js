@@ -1,5 +1,6 @@
-import React from "react";
 import "./App.css";
+
+import * as React from "react";
 import { useApp } from "./hooks/useApp";
 
 const App = () => {
