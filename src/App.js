@@ -16,9 +16,9 @@ const App = () => {
             <p>Loading, please wait...</p>
           ) : (
             <>
-              {products?.map((item) => (
+              {products.map((item) => (
                 <div className="card" key={item.id}>
-                  <img src={item.image} alt="ImageProducts" />
+                  <img src={item.image} alt="product-thumbnail" />
                   <div>
                     <p className="product-name">{item.name}</p>
                     <p className="product-price">Rp. {item.price}</p>

@@ -11,7 +11,7 @@ const GET_FLASH_SALE = gql`
 export const useApp = () => {
   const { loading, error, data } = useQuery(GET_FLASH_SALE);
 
-  const products = data?.cache?.data?.products;
+  const products = data?.cache?.data?.products ?? [];
 
   return { error, loading, products };
 };
