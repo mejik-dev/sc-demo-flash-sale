@@ -1,27 +1,36 @@
 import React from "react";
 import "./App.css";
-import { useFlashSale } from "./hooks/useFlashSale";
+import { useApp } from "./hooks/useApp";
 
-function App() {
-  const { loading, error, products } = useFlashSale();
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+const App = () => {
+  const { error, loading, products } = useApp();
 
   return (
     <div className="container">
-      <h1>Product Flash Sale</h1>
-      {products?.map(({ id, name, image, price }) => (
-        <div className="card" key={id}>
-          <img src={image} alt="ImageProducts" />
-          <div>
-            <p className="product-name">{name}</p>
-            <p className="product-price">Rp. {price}</p>
-          </div>
-        </div>
-      ))}
+      <h1>Now in Flash Sale</h1>
+      {error ? (
+        <p>Something went wrong while fetching the data...</p>
+      ) : (
+        <>
+          {loading ? (
+            <p>Loading, please wait...</p>
+          ) : (
+            <>
+              {products?.map((item) => (
+                <div className="card" key={item.id}>
+                  <img src={item.image} alt="ImageProducts" />
+                  <div>
+                    <p className="product-name">{item.name}</p>
+                    <p className="product-price">Rp. {item.price}</p>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;
